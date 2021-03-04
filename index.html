@@ -60,14 +60,27 @@
 <h3 id="question" >What was the SSN of Albert Einstein?</h3>
 
 <div id='answers'>
-<label for="answer1">
-<input type="radio" name="answer" id="answer1" /> 160-46-4620</label>
+<label>
+<input type="radio" name="answer"/>
+<span id="answer1"> 160-46-4620</span>
+</label>
 
-<label for="answer2">
-<input type="radio" name="answer" id="answer2" /> 210-32-7643</label>
+<label>
+<input type="radio" name="answer"  />
+<span id="answer2"> 210-32-7643</span>
+</label>
 
-<label for="answer3">
-<input type="radio" name="answer" id="answer3" /> 007-33-2020</label>
+<label>
+<input type="radio" name="answer" />
+<span id="answer3"> 007-33-2020
+</span>
+</label>
+
+<label>
+<input type="radio" name="answer" />
+<span id="answer4"> 007-33-2020
+</span>
+</label>
 </div>
 
 <p id ="score" style="font-weight:bold;">SCORE: 12</p>
@@ -93,7 +106,9 @@
 7) Game over once HEALTH reaches zero.
              <span>&#x1f496; &#x1f49a; &#x1f49b; &#x1f49c; &#x1f5a4;</span></pre>
 
-<script type="text/javascript" src="rollDice.js" charset="utf-8">
+<script src="https://unpkg.com/axios/dist/axios.min.js" defer="defer"></script>
+
+<script type="text/javascript" src="rollDice.js" defer="defer" charset="utf-8">
 </script>
   </body>
 </html>
