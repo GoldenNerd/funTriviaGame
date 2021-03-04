@@ -235,8 +235,8 @@ secondDice.transform=`rotate(${angl}deg)`;
 
 // Roll both dice multiple times
 function play(){
-// const firstDice=document.getElementById('dice-one').style;
-// const secondDice=document.getElementById('dice-two').style;
+// Request data from server via axios
+runTrivia();
 
 setTimeout(
 function() {
@@ -256,7 +256,6 @@ function() {
 callAll();
 // Update final dice rotation to angle 0deg
 updateBothAngls(0);
-runTrivia();
   }, 600);
   }, 450);
   }, 300);
@@ -284,15 +283,16 @@ const answersType='multiple';
 const url=`https://opentdb.com/api.php?amount=${triviaQty}&category=${triviaTopic}&difficulty=${skillLevel}&type=${answersType}`;
 
 function runTrivia(){
-axios.get(url)
+axios.get(url, {timeout: 600})
 .then((response)=>
 window.localStorage.setItem('axiosResponse', JSON.stringify(response)))
-.catch((error)=>{console.log(error);
+.catch((error)=>{//console.log(error);
 window.localStorage.setItem('axiosError', JSON.stringify(error));
 });
 
 const axiosResponse=JSON.parse(window.localStorage.getItem('axiosResponse'));
 console.log('axiosResponse: ', axiosResponse);
+
 const trivia=axiosResponse.data.results[0];
 console.log(trivia);
 window.localStorage.clear();
@@ -307,5 +307,8 @@ document.querySelector('#answer2'). innerHTML=`${trivia.incorrect_answers[0]}`;
 document.querySelector('#answer3'). innerHTML=`${trivia.incorrect_answers[1]}`;
 
 document.querySelector('#answer4'). innerHTML=`${trivia.incorrect_answers[2]}`;}
-, 500);
+, 2000);
 }
+
+const axiosError=JSON.parse(window.localStorage.getItem('axiosError'));
+console.log('axiosError: ', axiosError.message);
