@@ -256,6 +256,7 @@ function() {
 callAll();
 // Update final dice rotation to angle 0deg
 updateBothAngls(0);
+runTrivia();
   }, 600);
   }, 450);
   }, 300);
@@ -266,4 +267,45 @@ const rollDicesBtn = document.getElementById('roll-dice');
 rollDicesBtn.addEventListener('click', play);
 
 
+// Settings
+// Possibilities: 27 animals, 19 math, 18 computers
+const triviaTopic='27';
 
+// Possibilities: any Qyt
+const triviaQty='1';
+
+// Possibilities: easy, medium, hard
+const skillLevel='easy';
+
+// Possibilities: boolean, multiple
+const answersType='multiple';
+// const url=`https://opentdb.com/api.php?=1&=19&=easy&type=`;
+
+const url=`https://opentdb.com/api.php?amount=${triviaQty}&category=${triviaTopic}&difficulty=${skillLevel}&type=${answersType}`;
+
+function runTrivia(){
+axios.get(url)
+.then((response)=>
+window.localStorage.setItem('axiosResponse', JSON.stringify(response)))
+.catch((error)=>{console.log(error);
+window.localStorage.setItem('axiosError', JSON.stringify(error));
+});
+
+const axiosResponse=JSON.parse(window.localStorage.getItem('axiosResponse'));
+console.log('axiosResponse: ', axiosResponse);
+const trivia=axiosResponse.data.results[0];
+console.log(trivia);
+window.localStorage.clear();
+
+setTimeout(()=>{
+document.querySelector('#question'). innerHTML=`${trivia.question}`;
+
+document.querySelector('#answer1'). innerHTML=`${trivia.correct_answer}`;
+
+document.querySelector('#answer2'). innerHTML=`${trivia.incorrect_answers[0]}`;
+
+document.querySelector('#answer3'). innerHTML=`${trivia.incorrect_answers[1]}`;
+
+document.querySelector('#answer4'). innerHTML=`${trivia.incorrect_answers[2]}`;}
+, 500);
+}
