@@ -10,25 +10,36 @@ text-align: center;
   flex-wrap: nowrap;
   justify-content: space-around;
 }
+#question{
+outline: 1px solid transparent ;
+height: 2.5rem;
+margin-bottom: 0;
+}
 #answers {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-top: 5px;
+outline: 1px solid transparent ;
 }
 #score{
-  margin: 15px auto;
+  margin: 15px auto 10px auto;
 }
-
+#metrics{
+font-weight: bold ;
+margin: 20px auto;
+outline: 1px solid transparent ;
+}
 #roll-dice{
   font-size: 1.5em;
   border:1px solid #143314;
   border-radius: 5px;
   font-weight: bold;
-  outline: none;
+  outline: 1px solid transparent ;
   display: block;
-  margin: 40px auto;
+  margin: 40px auto 10px auto;
 }
 #roll-dice:active{
   color: white;
@@ -76,7 +87,7 @@ font-size: 1em;
 border:1px solid #143314;
   border-radius: 5px;
   font-weight: bold;
-  outline: none;
+  outline: 1px solid transparent ;
   display: block;
 margin-top: 10px;
 margin-bottom: 10px;
