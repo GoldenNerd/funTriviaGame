@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="rollDice.css" type="text/css" />
     <title>Sandbox for Playing</title>
   </head>
-  <body>
+  <body> 
 <h3>😁 FUN TRIVIA GAME 😁</h3>
 <div id='main-wrapper'>
   
@@ -53,40 +53,50 @@
         &#x22c5;</div>
       <div id='dice2dot22' class='square'>
         &#x22c5;</div>
-        
     </div>
+    
 </div>
-  <button id='roll-dice'>Roll Dice</button>
-<h3 id="question" >What was the SSN of Albert Einstein?</h3>
+
+  <button id='roll-dice'>
+    Roll Dice
+  </button>
+  
+ <p id="question" >
+  What is the color of Napoleon's white horse?
+ </p>
 
 <div id='answers'>
+  
 <label>
 <input type="radio" name="answer"/>
-<span id="answer1"> 160-46-4620</span>
+<span id="answer1"> Brown.</span>
 </label>
 
 <label>
 <input type="radio" name="answer"  />
-<span id="answer2"> 210-32-7643</span>
+<span id="answer2"> Black.</span>
 </label>
 
 <label>
 <input type="radio" name="answer" />
-<span id="answer3"> 007-33-2020
+<span id="answer3"> White.
 </span>
 </label>
 
 <label>
 <input type="radio" name="answer" />
-<span id="answer4"> 007-33-2020
+<span id="answer4"> None of the above.
 </span>
 </label>
+
 </div>
 
-<p id ="score" style="font-weight:bold;">SCORE: 12</p>
+<p id ="score" style="font-weight:bold;">
+  SCORE: 12
+</p>
 
-<pre>
-<span style="font-weight:bold;">
+<pre id="metrics">
+<span >
  &#x1f3c5; GOAL: 100       &#x1f496;  HEALTH: 98%</span> 
 </pre>
 
@@ -106,8 +116,8 @@
 7) Game over once HEALTH reaches zero.
              <span>&#x1f496; &#x1f49a; &#x1f49b; &#x1f49c; &#x1f5a4;</span></pre>
 <!-- <script src="https://unpkg.com/axios/dist/axios.min.js" defer="defer"></script> -->
-
  <script src="https://unpkg.com/axios/dist/axios.min.js" defer="defer"></script>
+
 <script type="text/javascript" src="rollDice.js" defer="defer" charset="utf-8">
 </script>
   </body>
